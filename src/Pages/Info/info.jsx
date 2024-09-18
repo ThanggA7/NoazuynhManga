@@ -13,7 +13,6 @@ function Info() {
           `https://otruyenapi.com/v1/api/truyen-tranh/${slug}`
         );
         const resData = await res.json();
-
         getInfo(resData.data.item);
         setChap(resData.data.item.chapters[0].server_data);
       } catch (error) {}
@@ -21,8 +20,6 @@ function Info() {
 
     Info();
   }, [slug]);
-
-  console.log(info);
 
   const date = moment(info.updatedAt, "YYYY-MM-DDTHH:mm:ssZ").format(
     "DD MMM, YYYY"
@@ -43,21 +40,12 @@ function Info() {
 
           <div className="flex items-center gap-2 mt-1">
             <Link
-              className="flex items-center gap-1 py-1 px-3 bg-[#4EB981] hover:bg-[#4eb982bb] rounded-md "
+              className="flex items-center gap-1 py-1 px-3 bg-[#4EB981] hover:bg-[black]  rounded-md  "
               to="/"
             >
-              <img src={icons.eyealt} alt="" />
+              <img src={icons.bookmark} alt="" />
               <span className="text-white font-Quicksand sm:text-[17px] text-[12px] font-medium">
-                Đọc ngay
-              </span>
-            </Link>
-            <Link
-              className="flex items-center gap-1 py-1 px-3 bg-[white] hover:bg-[#ffffffba]  rounded-md  "
-              to="/"
-            >
-              <img src={icons.info} alt="" />
-              <span className="text-black font-Quicksand sm:text-[17px] text-[12px] font-medium">
-                Chi tiết
+                Lưu Truyện
               </span>
             </Link>
           </div>

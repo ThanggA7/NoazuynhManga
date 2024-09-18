@@ -6,6 +6,7 @@ import { icons } from "../../../assets/icons";
 import useFetch from "../../../hooks/useFetch";
 import "swiper/css";
 function Content() {
+  const [slugchap, setSlugChap] = useState([]);
   const data = useFetch(
     "https://otruyenapi.com/v1/api/danh-sach/truyen-moi?page=2"
   );
@@ -26,6 +27,8 @@ function Content() {
     };
     ContentAPI();
   }, []);
+
+  console.log(data);
 
   return (
     <div className="w-full h-full overflow-auto px-[15px]">
@@ -85,7 +88,7 @@ function Content() {
                     <div className="flex items-center gap-2 mt-3">
                       <Link
                         className="flex items-center gap-1 py-1 px-3 bg-[#4EB981] hover:bg-[#4eb982bb] rounded-md "
-                        to={`/read/${data.slug}`}
+                        to={`/read/${data.slug}/${data.chaptersLatest[0].chapter_api_data.slice(42)}`}
                       >
                         <img src={icons.eyealt} alt="" />
                         <span className="text-white font-Quicksand sm:text-[17px] text-[12px] font-medium">

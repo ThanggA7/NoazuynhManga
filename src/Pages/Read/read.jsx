@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 function Read() {
   const [image, setImage] = useState([]);
   const [url, setUrl] = useState("");
+  const [name, setName] = useState("");
   const { id } = useParams();
 
   useEffect(() => {
@@ -13,6 +14,8 @@ function Read() {
         );
 
         const resData = await res.json();
+
+        setName(resData.data.item);
         setUrl(resData.data.item.chapter_path);
         setImage(resData.data.item.chapter_image);
       };
@@ -20,12 +23,12 @@ function Read() {
       imageChapter();
     } catch (error) {}
   }, [id]);
-
+  console.log(name.chapter_name);
   return (
-    <div className="w-full">
-      <div className="w-full h-[200px] bg-[#4D4D4D] rounded-lg ">
+    <div className="w-full relative">
+         <div className="w-full h-[200px] bg-[#4D4D4D] rounded-lg ">
         <h1 className="text-center text-[24px] text-white font-bold pt-3">
-          Đặc Vụ Kim - Chương 155
+          {name.comic_name} - Chương {name.chapter_name}
         </h1>
         <p className="text-center text-white">
           Nếu truyện bị lỗi vui lòng liên hệ qua Telegram:@manganozuynh
