@@ -15,8 +15,6 @@ function Content() {
   const data3 = useFetch(
     "https://otruyenapi.com/v1/api/danh-sach/hoan-thanh?page=1"
   );
-  console.log(data);
-
   const [commic, setCommic] = useState([]);
   useEffect(() => {
     const ContentAPI = async () => {
@@ -31,7 +29,6 @@ function Content() {
 
   return (
     <div className="w-full h-full overflow-auto px-[15px]">
-      
       <div>
         <Swiper
           spaceBetween={10}
@@ -112,7 +109,7 @@ function Content() {
           })}
         </Swiper>
       </div>
-      
+
       <div>
         <div className="bg-[#4D4D4D] mt-4 rounded-lg">
           <div className="flex items-center justify-between p-3">
